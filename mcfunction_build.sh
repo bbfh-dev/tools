@@ -12,4 +12,15 @@ if [[ -f Makefile ]]; then
     exit 0
 fi
 
+if [[ -f beet.json ]]; then
+    rye run beet build
+    exit 0
+fi
+
+if [[ -f ../beet.json ]]; then
+    cd ..
+    rye run beet build
+    exit 0
+fi
+
 echo "build: Skipping..."
